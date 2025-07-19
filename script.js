@@ -1,5 +1,27 @@
 /*********************Weather checker**********************/
 
+const [pin, setPin] = useState('');
+const [iframeLink, setIframeLink] = useState(null);
+
+// Sample user data (ideally from Firestore)
+const userLinks = {
+  "1234": "https://drumjs0.netlify.app/",
+  "5678": "https://your-second-user-panel.netlify.app/",
+  // etc.
+};
+
+const handlePinSubmit = () => {
+  const link = userLinks[pin];
+  if (link) {
+    setIframeLink(link); // open correct panel
+  } else {
+    alert("Invalid PIN");
+  }
+};
+
+
+
+
 const TempConverter = document.getElementById('temp-converter');
 const Tempbtn = document.getElementById('temp-btn');
 const weatbtn = document.getElementById('weather-btn');
